@@ -1,0 +1,244 @@
+:root {
+    --primary: #D35400; /* Orange Renard */
+    --primary-dark: #A04000;
+    --secondary: #27AE60; /* Vert Forêt */
+    --bg-color: #FDFBF7; /* Blanc cassé / Crème */
+    --text-color: #333333;
+    --card-bg: #FFFFFF;
+    --border: #E0E0E0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Header & Nav */
+header {
+    background-color: var(--secondary);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Main Layout */
+main {
+    padding: 2rem 0;
+}
+
+h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Components */
+.alert-box {
+    background-color: #FEF9E7;
+    border-left: 5px solid #F1C40F;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+}
+
+.alert-box h2 {
+    color: #B7950B;
+    border: none;
+    margin: 0 0 0.5rem 0;
+}
+
+.welcome {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    border-top: 4px solid var(--primary);
+}
+
+.calendar ul, .doc-list {
+    list-style: none;
+}
+
+.calendar li, .doc-list li {
+    background: var(--card-bg);
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid var(--secondary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Forms & Buttons */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.success-msg {
+    color: var(--secondary);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Cards & Tables */
+.news-card, .photo-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.news-card .date {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.img-compare {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.img-compare img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.3rem;
+}
+
+.tracking-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+}
+
+.tracking-table th, .tracking-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.badge {
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: white;
+    font-weight: bold;
+}
+
+.status-attente { background-color: #E67E22; }
+.status-cours { background-color: #3498DB; }
+.status-resolu { background-color: var(--secondary); }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--text-color);
+    color: white;
+    margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-flex { flex-direction: column; text-align: center; gap: 1rem; }
+    nav ul { flex-wrap: wrap; justify-content: center; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .img-compare { flex-direction: column; }
+}
