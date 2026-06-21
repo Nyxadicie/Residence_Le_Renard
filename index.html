@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résidence Le Renard – Informations et Vie Collective</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <h1>🦊 Résidence Le Renard</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="travaux.html">Travaux</a></li>
+                    <li><a href="signalements.html">Signalements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="alert-box">
+            <h2>🚨 À la une</h2>
+            <p><strong>Coupure d'eau prévue :</strong> Le mardi 23 juin de 9h à 12h dans le bâtiment A pour raccordement.</p>
+        </section>
+
+        <section class="welcome">
+            <h2>Bienvenue sur le site de la résidence Le Renard !</h2>
+            <p>Ici, vous trouverez toutes les informations sur les travaux en cours, les événements à venir, et les moyens de participer à la vie collective. Ensemble, faisons de notre résidence un lieu agréable et solidaire !</p>
+        </section>
+
+        <div class="grid-2">
+            <section class="calendar">
+                <h2>📅 Calendrier des événements</h2>
+                <ul>
+                    <li><strong>10 Juillet (18h00) :</strong> Réunion du conseil syndical - Hall Bâtiment B</li>
+                    <li><strong>15 Juillet (14h00) :</strong> Atelier tri sélectif - Local poubelles</li>
+                    <li><strong>01 Août (19h00) :</strong> Fête des voisins - Cour centrale</li>
+                </ul>
+            </section>
+
+            <section class="newsletter">
+                <h2>✉️ Newsletter</h2>
+                <p>Prochaine réunion du conseil syndical : le 10 juillet à 18h dans le hall. Au programme : Bilan des travaux et vote pour le projet de composteur.</p>
+                <p>Inscrivez-vous pour recevoir les comptes-rendus par email !</p>
+                <form id="newsletter-form">
+                    <input type="email" id="news-email" placeholder="Votre adresse email" required>
+                    <button type="submit" class="btn">S'inscrire</button>
+                </form>
+                <p id="news-msg" class="success-msg" style="display: none;">Merci pour votre inscription !</p>
+            </section>
+        </div>
+
+        <section class="contact">
+            <h2>📞 Contacts Utiles</h2>
+            <p><strong>Conseil Syndical :</strong> conseil.syndical@residence-lerenard.fr</p>
+            <p><strong>Commission Travaux :</strong> travaux@residence-lerenard.fr</p>
+            <p><strong>Syndic :</strong> 01 23 45 67 89 (Urgence 24/7)</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Résidence Le Renard - Site statique de la copropriété.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
