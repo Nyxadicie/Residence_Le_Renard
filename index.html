@@ -3,72 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Résidence Le Renard – Informations et Vie Collective</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Résidence Le Renard Bosc – Vie Collective</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES ET THÈME MODERNISÉ --- */
+        :root {
+            --primary-forest: #143626;     /* Vert forêt profond */
+            --accent-fox: #ba4300;         /* Orange renard profond */
+            --bg-light: #fbf9f6;           /* Fond blanc chaud / crème */
+            --card-bg: #ffffff;            /* Fond des cartes blanc pur */
+            --text-main: #2b302c;          /* Texte sombre */
+            --text-muted: #5c6460;         /* Texte secondaire */
+            --border-subtle: #e6eae7;      /* Bordures discrètes */
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow-subtle: 0 4px 20px rgba(20, 54, 38, 0.04);
+            --transition-smooth: all 0.3s ease;
+        }
+
+        /* --- RESET & BASES --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* Défilement fluide pour le menu ancré */
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- EN-TÊTE FIXE --- */
+        .site-header {
+            background-color: var(--primary-forest);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo-emoji { font-size: 1.8rem; }
+        .logo-title { color: white; font-weight: 700; font-size: 1.15rem; display: block;}
+        .logo-subtitle { color: rgba(255,255,255,0.7); font-size: 0.75rem; text-transform: uppercase; }
+
+        .main-nav ul { list-style: none; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .main-nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            transition: var(--transition-smooth);
+        }
+        .main-nav a:hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
+
+        /* --- SECTIONS (Pages Uniques) --- */
+        /* On ajoute un padding-top pour compenser le menu fixe lors du défilement (ancres) */
+        section {
+            padding-top: 100px; 
+            padding-bottom: 60px;
+            margin-top: -40px; 
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        section:last-of-type { border-bottom: none; }
+
+        .section-header { margin-bottom: 2.5rem; }
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-forest);
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* --- BOUTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            background-color: var(--accent-fox);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        .btn:hover { background-color: #a03900; transform: translateY(-2px); }
+
+        /* --- CARTES ET GRILLES --- */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        
+        .modern-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-subtle);
+        }
+        .modern-card h3 { color: var(--primary-forest); margin-bottom: 1rem; }
+
+        /* --- ACCUEIL --- */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-forest) 0%, #0d2419 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 2rem;
+        }
+        .hero-banner h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+        .hero-banner p { font-size: 1.1rem; opacity: 0.9; }
+
+        .alert-box {
+            background-color: #fff9f5;
+            border: 1px solid rgba(186, 67, 0, 0.2);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            color: #8a3200;
+        }
+
+        .event-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            display: flex; gap: 1rem; align-items: center;
+        }
+        .event-date {
+            background: rgba(20,54,38,0.1);
+            color: var(--primary-forest);
+            padding: 0.5rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            min-width: 60px;
+            font-weight: 700;
+        }
+
+        /* --- ACTUALITÉS --- */
+        .news-item {
+            border-left: 4px solid var(--accent-fox);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .news-date { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+        .news-item h3 { color: var(--primary-forest); margin: 0.5rem 0; }
+
+        /* --- TRAVAUX --- */
+        .doc-link {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1rem; background: var(--bg-light);
+            border-radius: var(--radius-md); margin-bottom: 1rem;
+            text-decoration: none; color: var(--text-main);
+            border: 1px solid var(--border-subtle);
+        }
+        .doc-link:hover { border-color: var(--primary-forest); }
+        
+        .compare-img { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .img-placeholder {
+            background: #e0e0e0; height: 150px; border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem; color: #555;
+        }
+
+        /* --- ENTRAIDE & FORMULAIRE --- */
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem; }
+        input[type="text"], select, textarea {
+            width: 100%; padding: 0.8rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            font-family: inherit; font-size: 0.95rem;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none; border-color: var(--primary-forest);
+        }
+
+        /* Liste des actions statiques */
+        .action-item {
+            background: var(--bg-light); padding: 1.2rem;
+            border-radius: var(--radius-md); margin-bottom: 1rem;
+            border: 1px solid var(--border-subtle);
+        }
+        .action-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+        .badge {
+            padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+        }
+        .badge-attente { background: #ffeaa7; color: #d35400; }
+        .badge-cours { background: #74b9ff; color: #0984e3; }
+        .badge-resolu { background: #55efc4; color: #00b894; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-forest);
+            color: white; padding: 2rem 0; text-align: center;
+            margin-top: 2rem; font-size: 0.9rem; opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .header-container { justify-content: center; }
+            .main-nav ul { justify-content: center; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container header-flex">
-            <h1>🦊 Résidence Le Renard</h1>
-            <nav>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#accueil" class="logo">
+                <span class="logo-emoji">🦊</span>
+                <div>
+                    <span class="logo-title">Le Renard Bosc</span>
+                    <span class="logo-subtitle">Site des résidents</span>
+                </div>
+            </a>
+            <nav class="main-nav">
                 <ul>
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="actualites.html">Actualités</a></li>
-                    <li><a href="travaux.html">Travaux</a></li>
-                    <li><a href="signalements.html">Signalements</a></li>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#actualites">Actualités</a></li>
+                    <li><a href="#travaux">Travaux</a></li>
+                    <li><a href="#entraide">Entraide & Demandes</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container">
-        <section class="alert-box">
-            <h2>🚨 À la une</h2>
-            <p><strong>Coupure d'eau prévue :</strong> Le mardi 23 juin de 9h à 12h dans le bâtiment A pour raccordement.</p>
+
+        <section id="accueil">
+            <div class="alert-box">
+                <strong>🚨 Information à la une :</strong> (Remplacez ce texte par une urgence, ou supprimez ce bloc dans le code s'il n'y a pas d'urgence).
+            </div>
+
+            <div class="hero-banner">
+                <h1>Bienvenue à la résidence Le Renard Bosc !</h1>
+                <p>Cet espace est géré par les résidents. Retrouvez ici le suivi des travaux énergétiques, les dernières actualités de notre copropriété et un espace d'entraide pour faciliter notre quotidien.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="modern-card">
+                    <h3>📅 Prochains événements</h3>
+                    <div class="event-item">
+                        <div class="event-date">10<br>Juil</div>
+                        <div>
+                            <strong>Réunion d'information Travaux</strong><br>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">18h00 - Hall Principal</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">24<br>Août</div>
+                        <div>
+                            <strong>Fête des voisins de rentrée</strong><br>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">19h00 - Cour centrale</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modern-card">
+                    <h3>📞 Contacts utiles</h3>
+                    <p style="margin-bottom: 1rem; font-size:0.95rem; color:var(--text-muted);">Pour toute question officielle concernant la gestion :</p>
+                    <a href="mailto:conseil.syndical@residence.fr" class="btn" style="width: 100%; text-align: center; margin-bottom: 1rem;">
+                        ✉️ Contacter le Conseil Syndical
+                    </a>
+                    
+                    <p style="margin-bottom: 1rem; font-size:0.95rem; color:var(--text-muted);">Pour ajouter ou modifier une information sur ce site web :</p>
+                    <a href="mailto:site.residence@residence.fr?subject=Ajout%20info%20site%20web" class="btn" style="width: 100%; text-align: center; background-color: var(--primary-forest);">
+                        💻 Contacter le webmaster
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <section class="welcome">
-            <h2>Bienvenue sur le site de la résidence Le Renard !</h2>
-            <p>Ici, vous trouverez toutes les informations sur les travaux en cours, les événements à venir, et les moyens de participer à la vie collective. Ensemble, faisons de notre résidence un lieu agréable et solidaire !</p>
+        <section id="actualites">
+            <div class="section-header">
+                <h2>📰 Le fil d'actualités</h2>
+                <p class="section-subtitle">Ce qu'il s'est passé récemment dans la copropriété.</p>
+            </div>
+
+            <div class="modern-card">
+                <article class="news-item">
+                    <span class="news-date">15 Juin 2026</span>
+                    <h3>Réparation de la porte d'entrée Bâtiment A</h3>
+                    <p>Le technicien est intervenu ce matin. Le groom a été entièrement remplacé, la porte se ferme de nouveau correctement sans claquer. Merci à tous pour votre patience.</p>
+                </article>
+
+                <article class="news-item">
+                    <span class="news-date">02 Juin 2026</span>
+                    <h3>Nouveaux bacs de tri sélectif</h3>
+                    <p>La métropole a procédé au remplacement de nos bacs jaunes. Ils sont désormais plus grands. N'oubliez pas de plier vos cartons pour optimiser l'espace collectif !</p>
+                </article>
+            </div>
         </section>
 
-        <div class="grid-2">
-            <section class="calendar">
-                <h2>📅 Calendrier des événements</h2>
-                <ul>
-                    <li><strong>10 Juillet (18h00) :</strong> Réunion du conseil syndical - Hall Bâtiment B</li>
-                    <li><strong>15 Juillet (14h00) :</strong> Atelier tri sélectif - Local poubelles</li>
-                    <li><strong>01 Août (19h00) :</strong> Fête des voisins - Cour centrale</li>
-                </ul>
-            </section>
+        <section id="travaux">
+            <div class="section-header">
+                <h2>🏗️ Suivi de la rénovation énergétique</h2>
+                <p class="section-subtitle">Transparence sur l'avancement de notre grand projet.</p>
+            </div>
 
-            <section class="newsletter">
-                <h2>✉️ Newsletter</h2>
-                <p>Prochaine réunion du conseil syndical : le 10 juillet à 18h dans le hall. Au programme : Bilan des travaux et vote pour le projet de composteur.</p>
-                <p>Inscrivez-vous pour recevoir les comptes-rendus par email !</p>
-                <form id="newsletter-form">
-                    <input type="email" id="news-email" placeholder="Votre adresse email" required>
-                    <button type="submit" class="btn">S'inscrire</button>
-                </form>
-                <p id="news-msg" class="success-msg" style="display: none;">Merci pour votre inscription !</p>
-            </section>
-        </div>
+            <div class="grid-2">
+                <div class="modern-card">
+                    <h3>📄 Comptes-rendus (PDF)</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.9rem;">Téléchargez les rapports mensuels d'avancement du chantier.</p>
+                    
+                    <a href="#" class="doc-link">
+                        <span style="font-size: 1.5rem;">📋</span>
+                        <div>
+                            <strong>Rapport Juin 2026</strong><br>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">PDF - 2.1 Mo</span>
+                        </div>
+                    </a>
+                    <a href="#" class="doc-link">
+                        <span style="font-size: 1.5rem;">📋</span>
+                        <div>
+                            <strong>Rapport Mai 2026</strong><br>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">PDF - 1.8 Mo</span>
+                        </div>
+                    </a>
+                </div>
 
-        <section class="contact">
-            <h2>📞 Contacts Utiles</h2>
-            <p><strong>Conseil Syndical :</strong> conseil.syndical@residence-lerenard.fr</p>
-            <p><strong>Commission Travaux :</strong> travaux@residence-lerenard.fr</p>
-            <p><strong>Syndic :</strong> 01 23 45 67 89 (Urgence 24/7)</p>
+                <div class="modern-card">
+                    <h3>📸 Avant / Après</h3>
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong>Isolation toiture</strong>
+                        <div class="compare-img">
+                            <div class="img-placeholder">Avant travaux</div>
+                            <div class="img-placeholder" style="background:#c8d6ce; border:2px solid var(--primary-forest);">Après isolation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <section id="entraide">
+            <div class="section-header">
+                <h2>🤝 Entraide & Démarches</h2>
+                <p class="section-subtitle">Signalez un problème ou proposez un coup de main entre voisins.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="modern-card">
+                    <h3>Soumettre une demande</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                        En cliquant sur "Envoyer", votre message sera préparé pour être envoyé <b>simultanément</b> aux deux adresses de gestion de la résidence.
+                    </p>
+                    
+                    <form id="action-form">
+                        <div class="form-group">
+                            <label>Nature du message :</label>
+                            <select id="form-nature" required>
+                                <option value="" disabled selected>-- Choisissez --</option>
+                                <option value="SIGNALEMENT">Signaler un problème technique</option>
+                                <option value="IDEE">Proposer une idée / amélioration</option>
+                                <option value="SERVICE">Proposer un service (Déchèterie, prêt...)</option>
+                                <option value="AIDE">Demander un coup de main</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sujet résumé :</label>
+                            <input type="text" id="form-subject" placeholder="Ex: Ampoule grillée ou Trajet déchèterie" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Lieu ou Appartement concerné :</label>
+                            <input type="text" id="form-location" placeholder="Ex: Bâtiment A, ou Appartement 12" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Détaillez votre demande :</label>
+                            <textarea id="form-desc" rows="4" placeholder="Expliquez ici..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%;">Préparer l'envoi de l'e-mail</button>
+                    </form>
+                </div>
+
+                <div class="modern-card">
+                    <h3>📋 Tableau de bord des demandes</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                        Ce tableau est mis à jour manuellement par l'administrateur du site.
+                    </p>
+
+                    <div class="action-item">
+                        <div class="action-header">
+                            <span style="font-weight: 600; font-size: 0.9rem; color:var(--primary-forest);">Trajet Déchèterie Samedi</span>
+                            <span class="badge badge-resolu">Offre Active</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Par l'Appartement 14. "J'y vais avec mon utilitaire, contactez-moi si besoin de grouper".</p>
+                    </div>
+
+                    <div class="action-item">
+                        <div class="action-header">
+                            <span style="font-weight: 600; font-size: 0.9rem; color:var(--primary-forest);">Fuite robinet local vélo</span>
+                            <span class="badge badge-cours">En cours (Plombier prévenu)</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Signalé le 18/06 par le Bât. B.</p>
+                    </div>
+
+                    <div class="action-item">
+                        <div class="action-header">
+                            <span style="font-weight: 600; font-size: 0.9rem; color:var(--primary-forest);">Boîte à livre dans le hall</span>
+                            <span class="badge badge-attente">Idée à l'étude</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Proposition de l'Appartement 3 de créer une étagère partagée.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Résidence Le Renard - Site statique de la copropriété.</p>
+            <p>&copy; 2026 Résidence Le Renard Bosc — Site participatif et statique.</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const actionForm = document.getElementById("action-form");
+            
+            if (actionForm) {
+                actionForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    
+                    const nature = document.getElementById("form-nature").value;
+                    const subject = document.getElementById("form-subject").value;
+                    const location = document.getElementById("form-location").value;
+                    const description = document.getElementById("form-desc").value;
+                    
+                    // --- VOS DEUX ADRESSES EMAILS ICI (Séparées par une virgule) ---
+                    // Remplacez les deux emails ci-dessous par les vraies adresses.
+                    const emailsDestinataires = "email1.conseil@residence.fr,email2.entraide@residence.fr";
+                    
+                    const emailSubject = encodeURIComponent(`[${nature}] Le Renard Bosc : ${subject}`);
+                    const emailBody = encodeURIComponent(
+                        `Nouvelle démarche soumise depuis le site web :\n\n` +
+                        `- Nature : ${nature}\n` +
+                        `- Sujet : ${subject}\n` +
+                        `- Concernant : ${location}\n\n` +
+                        `Description :\n${description}\n\n` +
+                        `---------------------\nMessage généré automatiquement depuis la page web.`
+                    );
+                    
+                    // Ouvre le client mail avec les DEUX destinataires simultanément
+                    window.location.href = `mailto:${emailsDestinataires}?subject=${emailSubject}&body=${emailBody}`;
+                    
+                    alert("Votre demande est prête à être envoyée. Votre logiciel de messagerie va s'ouvrir.");
+                    actionForm.reset();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
