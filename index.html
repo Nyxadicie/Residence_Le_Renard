@@ -172,6 +172,17 @@
         .news-item h3 { color: var(--primary-forest); margin: 0.5rem 0; }
 
         /* --- TRAVAUX --- */
+.liste-travaux {
+    margin-top: 1rem;
+    margin-left: 1.5rem; /* Espace pour afficher les puces */
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+.liste-travaux li {
+    margin-bottom: 0.5rem;
+}
+
+        
         .doc-link {
             display: flex; align-items: center; gap: 1rem;
             padding: 1rem; background: var(--bg-light);
@@ -318,11 +329,16 @@
             </div>
         </section>
 
-        <section id="travaux">
-            <div class="section-header">
-                <h2>🏗️ Suivi de la rénovation énergétique</h2>
-                <p class="section-subtitle">Transparence sur l'avancement de notre grand projet.</p>
-            </div>
+      <div class="section-header">
+    <h2>🏗️ Suivi de la rénovation énergétique</h2>
+    <p class="section-subtitle">Transparence sur l'avancement de notre grand projet.</p>
+    
+    <ul class="liste-travaux">
+        <li><strong>Phase 1 (Terminée) :</strong> Isolation des combles et toitures.</li>
+        <li><strong>Phase 2 (En cours) :</strong> Remplacement du système de chauffage collectif.</li>
+        <li><strong>Phase 3 (Prévue en Septembre) :</strong> Changement des menuiseries des parties communes.</li>
+    </ul>
+    </div>
 
             <div class="grid-2">
                 <div class="modern-card">
