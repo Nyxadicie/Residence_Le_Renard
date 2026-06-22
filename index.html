@@ -172,25 +172,15 @@
         .news-item h3 { color: var(--primary-forest); margin: 0.5rem 0; }
 
         /* --- TRAVAUX --- */
-.liste-travaux {
-    margin-top: 1rem;
-    margin-left: 1.5rem; /* Espace pour afficher les puces */
-    color: var(--text-main);
-    font-size: 0.95rem;
-}
-.liste-travaux li {
-    margin-bottom: 0.5rem;
-}
-
-        
-        .doc-link {
-            display: flex; align-items: center; gap: 1rem;
-            padding: 1rem; background: var(--bg-light);
-            border-radius: var(--radius-md); margin-bottom: 1rem;
-            text-decoration: none; color: var(--text-main);
-            border: 1px solid var(--border-subtle);
+        .liste-travaux {
+            margin-top: 1rem;
+            margin-left: 1.5rem; /* Espace pour afficher les puces */
+            color: var(--text-main);
+            font-size: 0.95rem;
         }
-        .doc-link:hover { border-color: var(--primary-forest); }
+        .liste-travaux li {
+            margin-bottom: 0.5rem;
+        }
         
         .compare-img { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
         .img-placeholder {
@@ -242,11 +232,6 @@
 </head>
 <body>
 
-
-
-
-
-    
     <header class="site-header">
         <div class="container header-container">
             <a href="#accueil" class="logo">
@@ -269,9 +254,6 @@
 
     <main class="container">
 
-
-        
-
         <section id="accueil">
             <div class="alert-box" style="display: none;"> 
                 <strong>🚨 Urgence :</strong> Aucune
@@ -279,7 +261,7 @@
 
             <div class="hero-banner">
                 <h1>Bienvenue à la résidence Le Renard !</h1>
-                <p>Cet espace est géré par les résident.e.s. Retrouvez ici nos dernières actualités, le suivi des travaux de rénovation énergétiques et un espace d'entraide pour faciliter notre quotidien.</p>
+                <p>Cet espace est géré par les résident·e·s. Retrouvez ici nos dernières actualités, le suivi des travaux de rénovation énergétique et un espace d'entraide pour faciliter notre quotidien.</p>
             </div>
 
             <div class="grid-2">
@@ -296,7 +278,7 @@
                    <div class="event-item">
                         <div class="event-date">25<br>Juin</div>
                         <div>
-                            <strong>Réunion de chantier hebdomadaire (Participation de deux membres du conseil syndical)</strong><br>
+                            <strong>Réunion de chantier hebdomadaire (Participation de membres du conseil syndical)</strong><br>
                             <span style="font-size: 0.85rem; color: var(--text-muted);">09h00 - Sur site</span>
                         </div>
                     </div>
@@ -304,7 +286,7 @@
                     <div class="event-item">
                         <div class="event-date">03<br>Juil</div>
                         <div>
-                            <strong>Fête des Renard.e.s</strong><br>
+                            <strong>Fête des Renard·e·s</strong><br>
                             <span style="font-size: 0.85rem; color: var(--text-muted);">19h00 - Jardin collectif</span>
                         </div>
                     </div>
@@ -319,12 +301,12 @@
 
                     <p style="margin-bottom: 1rem; font-size:0.95rem; color:var(--text-muted);">Pour une assistance auprès du syndic :</p>
                     <a href="mailto:XXXX@XXXXX.fr" class="btn" style="width: 100%; text-align: center; margin-bottom: 1rem;">
-                        ✉️ Contacter le président du Conseil Syndical
+                        ✉️ Contacter le ou la président·e du Conseil Syndical
                     </a>
                     
                     <p style="margin-bottom: 1rem; font-size:0.95rem; color:var(--text-muted);">Pour ajouter ou modifier une information sur ce site web :</p>
                     <a href="mailto:WWWWWW@WWWWW.me?subject=Ajout%20info%20site%20web" class="btn" style="width: 100%; text-align: center; margin-bottom: 1rem;">
-                        💻 Contacter la webmaster
+                        💻 Contacter le ou la webmaster
                     </a>
                 </div>
             </div>
@@ -340,54 +322,37 @@
                 <article class="news-item">
                     <span class="news-date">Avril 2026</span>
                     <h3>Amélioration de la lisibilité comptable</h3>
-                    <p>Les comptes courants sont maintenant séparés de ceux des travaux. Vous pouvez demander au syndic l'état de votre compte emprunteur pour les travaux de la résidence</p>
+                    <p>Les comptes courants sont maintenant séparés de ceux des travaux. Vous pouvez demander au syndic l'état de votre compte emprunteur pour les travaux de la résidence.</p>
                 </article>
 
                 <article class="news-item">
                     <span class="news-date">Avril 2026</span>
                     <h3>Espace poubelle du bâtiment 4</h3>
-                    <p>Dépôts régulier d'encombrants et branchages. La mairie, Bordeaux Métropole et la police municipale ont été contactés </p>
+                    <p>Dépôts réguliers d'encombrants et branchages. La mairie, Bordeaux Métropole et la police municipale ont été contactées.</p>
                 </article>
             </div>
         </section>
 
-    <section id="travaux">
+        <section id="travaux">
+            <div class="section-header">
+                <h2>🏗️ Suivi de la rénovation énergétique</h2>
+                <p class="section-subtitle">L'avancement de notre grand projet.</p>
+                
+                <ul class="liste-travaux">
+                    <li><strong>Phases terminées :</strong> I- courante – Relevés périphériques, relevés sur cheminées terminés – Ligne de vie posée - Dalles béton réalisées pour échelles à crinoline des bats 1 – 2 et 4 - Bats 1 – 2 et 4 : Lavage et peinture des voiles loggias avant pose des échelles à crinoline - VMC : 33 logements réalisés (bouches, grilles, détalonnage) ; Établissement des plans des implantations des moteurs en terrasses.</li>
+                    <li><strong>Phase en cours :</strong> Fabrication des plenums pour VMC.</li>
+                    <li><strong>Phase prochaine :</strong> Planifier l'intervention sur coursives et communs semaine 26.</li>
+                </ul>
+            </div>
 
-      <div class="section-header">
-    <h2>🏗️ Suivi de la rénovation énergétique</h2>
-    <p class="section-subtitle"> L'avancement de notre grand projet.</p>
-    
-    <ul class="liste-travaux">
-        <li><strong>Phases terminées :</strong> I- courante – Relevés périphériques, relevés sur cheminées terminés – Ligne de vie posée
-- Dalles béton réalisées pour échelles à crinoline des bats 1 – 2 et 4
-- Bat 1 – 2 et 4 : Lavage et peinture des voiles loggias avant pose des échelles à crinoline
-- VMC : - 33 logements réalisés (bouches, grilles, détalonnage) ; Etablissement des plans des implantations des moteurs en terrasses .</li>
-        <li><strong>Phase en cours :</strong> Fabrication des plenums pour VMC.</li>
-        <li><strong>Phase prochaine :</strong> Planifier intervention sur coursives et communs semaine 26.</li>
-    </ul>
-    </div>
-
-            <div class="grid-2">
-                <div class="modern-card">
-                    <h3>📄 Comptes-rendus (PDF)</h3>
-                    <p style="margin-bottom: 1rem; font-size: 0.9rem;">Téléchargez le rapport d'avancement du chantier.</p>
-                    
-                    <a href="#" class="doc-link">
-                        <span style="font-size: 1.5rem;">📋</span>
-                        <div>
-                            <strong>Rapport Juin 2026</strong><br>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">PDF - 2.1 Mo</span>
-                        </div>
-                   </div>
-
-                <div class="modern-card">
-                    <h3>📸 Avant / Après</h3>
-                    <div style="margin-bottom: 1.5rem;">
-                        <strong>Isolation toiture</strong>
-                        <div class="compare-img">
-                            <div class="img-placeholder">Avant travaux</div>
-                            <div class="img-placeholder" style="background:#c8d6ce; border:2px solid var(--primary-forest);">Après isolation</div>
-                        </div>
+            <!-- Correction du bug d'affichage : la grille cassée avec le bouton PDF a été remplacée par l'unique bloc d'images tel que demandé -->
+            <div class="modern-card">
+                <h3>📸 Avant / Après</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <strong>Isolation toiture</strong>
+                    <div class="compare-img">
+                        <div class="img-placeholder">Avant travaux</div>
+                        <div class="img-placeholder" style="background:#c8d6ce; border:2px solid var(--primary-forest);">Après isolation</div>
                     </div>
                 </div>
             </div>
@@ -396,14 +361,14 @@
         <section id="entraide">
             <div class="section-header">
                 <h2>🤝 Entraide & Démarches</h2>
-                <p class="section-subtitle">Signalez un problème ou proposez un coup de main entre voisins.</p>
+                <p class="section-subtitle">Signalez un problème ou proposez un coup de main entre voisin·e·s.</p>
             </div>
 
             <div class="grid-2">
                 <div class="modern-card">
                     <h3>Soumettre une demande</h3>
                     <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-                         Vous pouvez envoyer une demande, proposition ou information. Selon sa nature, elle sera traitée par le conseil syndical et/ou proposer sur le site web de manière anonyme.
+                         Vous pouvez envoyer une demande, proposition ou information. Selon sa nature, elle sera traitée par le conseil syndical et/ou proposée sur le site web de manière anonyme.
                     </p>
                     
                     <form id="action-form">
@@ -440,7 +405,7 @@
                 <div class="modern-card">
                     <h3>📋 Tableau de bord des demandes</h3>
                     <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-                        Ce tableau est mis à jour manuellement par l'administrateur du site. Merci de votre compréhension pour les délais.
+                        Ce tableau est mis à jour manuellement par l'administrateur·rice du site. Merci de votre compréhension pour les délais.
                     </p>
 
                     <div class="action-item">
@@ -451,18 +416,16 @@
                         <p style="font-size: 0.85rem; color: var(--text-muted);"> Proposition de grouper un trajet à la déchetterie pour déposer du petit matériel.</p>
                     </div>
 
-
                     <div class="action-item">
                         <div class="action-header">
                             <span style="font-weight: 600; font-size: 0.9rem; color:var(--primary-forest);">Cercles de discussion</span>
                             <span class="badge badge-attente">Idée à l'étude</span>
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Proposition de créer des moments informels par groupes d'habitant.e.s par bâtiments. Ces moments pourraient permettre d'aborder plus facilement des sujets entre proche voisin.e.s pour désarmorcer des petites tensions ou découvrir combien vos voisin.e.s sont géniaux</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Proposition de créer des moments informels par groupes d'habitant·e·s par bâtiments. Ces moments pourraient permettre d'aborder plus facilement des sujets entre proches voisin·e·s pour désamorcer des petites tensions ou découvrir combien vos voisin·e·s sont formidables.</p>
                     </div>
                 </div>
             </div>
         </section>
-       
         
     </main>
 
